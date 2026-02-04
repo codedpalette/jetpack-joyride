@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://us1jfwum4tfa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_esejr"]
+distance = -648.0
+
+[node name="Bounds" type="StaticBody2D" unique_id=933791999]
+
+[node name="Floor" type="CollisionShape2D" parent="." unique_id=788966207]
+shape = SubResource("WorldBoundaryShape2D_esejr")
