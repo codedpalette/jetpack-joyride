@@ -4,8 +4,12 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
 func _draw() -> void:
-    draw_rect(Rect2(-10, -10, 20, 20), Color.WHITE)
+    var rect = collision_shape.shape.get_rect()
+    draw_rect(rect, Color.GREEN)
+    draw_rect(rect, Color.BLACK, false, 2.0)
 
 
 func _physics_process(delta: float) -> void:
@@ -14,15 +18,12 @@ func _physics_process(delta: float) -> void:
         velocity += get_gravity() * delta
 
     # Handle jump.
-    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-        velocity.y = JUMP_VELOCITY
+    if Input.is_action_pressed("ui_accept"):
+        velocity.y = JUMP_VELOCITY # TODO: Acceleration
 
-    # Get the input direction and handle the movement/deceleration.
-    # As good practice, you should replace UI actions with custom gameplay actions.
-    var direction := Input.get_axis("ui_left", "ui_right")
-    if direction:
-        velocity.x = direction * SPEED
+    # Move until reaching fixed position, afterwards the background will move.
+    if position.x < 0:
+        velocity.x = SPEED
     else:
-        velocity.x = move_toward(velocity.x, 0, SPEED)
-
+        velocity.x = 0
     move_and_slide()

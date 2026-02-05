@@ -2,12 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://mtpnkklibq40" path="res://entities/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://us1jfwum4tfa" path="res://entities/bounds.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cgwcw6v0v42mh" path="res://background.jpg" id="3_h2yge"]
 
 [node name="Main" type="Node" unique_id=1117450360]
 
 [node name="World" type="Node2D" parent="." unique_id=404956370]
 
-[node name="Player" parent="World" unique_id=178078443 instance=ExtResource("1_ig7tw")]
-position = Vector2(42, 594)
-
 [node name="Bounds" parent="World" unique_id=933791999 instance=ExtResource("2_0xm2m")]
+
+[node name="PlayerPosition" type="Node2D" parent="World" unique_id=1956690177]
+position = Vector2(450, 540)
+
+[node name="Player" parent="World/PlayerPosition" unique_id=178078443 instance=ExtResource("1_ig7tw")]
+position = Vector2(-570, 0)
+
+[node name="Background" type="Sprite2D" parent="World" unique_id=2088609467]
+modulate = Color(1, 1, 1, 0.23529412)
+z_index = -1
+texture_repeat = 2
+scale = Vector2(0.74999994, 0.55693066)
+texture = ExtResource("3_h2yge")
+centered = false
