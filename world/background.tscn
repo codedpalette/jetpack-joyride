@@ -6,5 +6,5 @@
 [node name="Background" type="Polygon2D" unique_id=990870019]
 modulate = Color(1, 1, 1, 0.23529412)
 texture = ExtResource("1_h7gjo")
-polygon = PackedVector2Array(0, 675, 1200, 675, 1200, 0, 0, 0)
+polygon = PackedVector2Array(0, 675, 1211.9365, 679.2467, 1212.1472, 0.04135275, 0, 0)
 script = ExtResource("2_brqf8")
