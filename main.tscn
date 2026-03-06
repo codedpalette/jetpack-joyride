@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e7vy0g58dx4"]
 
-[ext_resource type="PackedScene" uid="uid://mtpnkklibq40" path="res://entities/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://mtpnkklibq40" path="res://entities/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://us1jfwum4tfa" path="res://world/bounds.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cpqtnu4rvmlr0" path="res://world/background.tscn" id="3_h2yge"]
 
@@ -15,6 +15,6 @@ uv = PackedVector2Array(0, 1216, 1552, 1216, 1551.9999, 0, 0, 0)
 [node name="Bounds" parent="World" unique_id=933791999 instance=ExtResource("2_0xm2m")]
 
 [node name="PlayerTrack" type="Node2D" parent="World" unique_id=1956690177]
-position = Vector2(450, 540)
+position = Vector2(350, 540)
 
 [node name="Player" parent="World/PlayerTrack" unique_id=178078443 instance=ExtResource("1_ig7tw")]
