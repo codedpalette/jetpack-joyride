@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://mtpnkklibq40" path="res://entities/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://us1jfwum4tfa" path="res://world/bounds.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://kertcuir2gc5" path="res://entities/obstacles/obstacle.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dbdogidroy41n" path="res://entities/obstacles/obstacle_spawner.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cpqtnu4rvmlr0" path="res://world/background.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node" unique_id=1117450360]
@@ -16,8 +16,9 @@ uv = PackedVector2Array(0, 1216, 1552, 1216, 1551.9999, 0, 0, 0)
 [node name="Bounds" parent="World" unique_id=933791999 instance=ExtResource("2_0xm2m")]
 position = Vector2(1215, 0)
 
-[node name="Obstacle" parent="World/Bounds" unique_id=430811972 instance=ExtResource("3_1bvp3")]
-position = Vector2(25, 550)
+[node name="ObstacleSpawner" parent="World/Bounds" unique_id=543382101 instance=ExtResource("3_1bvp3")]
+position = Vector2(0, 75.5597)
+scale = Vector2(1, 0.8880597)
 
 [node name="PlayerTrack" type="Node2D" parent="World" unique_id=1956690177]
 position = Vector2(350, 540)

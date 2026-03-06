@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dbdogidroy41n"]
+
+[ext_resource type="Script" uid="uid://ckevi0hqwk8ai" path="res://entities/obstacles/obstacle_spawner.gd" id="1_i5i8p"]
+
+[sub_resource type="Curve2D" id="Curve2D_uw481"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 584.916)
+}
+point_count = 2
+
+[node name="ObstacleSpawner" type="Path2D" unique_id=543382101]
+curve = SubResource("Curve2D_uw481")
+script = ExtResource("1_i5i8p")
+
+[node name="Timer" type="Timer" parent="." unique_id=965352814]
+autostart = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=924927690]
+position = Vector2(0, 5)
+rotation = 1.5707964
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
