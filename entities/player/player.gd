@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const JUMP_FORCE := 2000.0
 const GRAVITY := 2000.0
-const MAX_VELOCITY := 1000.0
+const MAX_VELOCITY := 800.0
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("shoot"):
