@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://ckevi0hqwk8ai" path="res://entities/obstacles/obstacle_spawner.gd" id="1_i5i8p"]
 
 [sub_resource type="Curve2D" id="Curve2D_uw481"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 584.916)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 675)
 }
 point_count = 2
 
@@ -16,7 +17,6 @@ script = ExtResource("1_i5i8p")
 autostart = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=924927690]
-position = Vector2(0, 5)
 rotation = 1.5707964
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
