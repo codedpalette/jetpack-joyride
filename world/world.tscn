@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bofpcamvkyenl"]
+
+[ext_resource type="PackedScene" uid="uid://cpqtnu4rvmlr0" path="res://world/background/background.tscn" id="1_h5o24"]
+[ext_resource type="Script" uid="uid://cs7hk8trnal3t" path="res://world/world.gd" id="1_mmdvd"]
+[ext_resource type="PackedScene" uid="uid://us1jfwum4tfa" path="res://world/bounds.tscn" id="2_mmdvd"]
+[ext_resource type="PackedScene" uid="uid://dbdogidroy41n" path="res://entities/obstacles/obstacle_spawner.tscn" id="3_fn3g3"]
+
+[node name="World" type="Node2D" unique_id=358015146]
+script = ExtResource("1_mmdvd")
+
+[node name="Background" parent="." unique_id=990870019 instance=ExtResource("1_h5o24")]
+texture_repeat = 2
+uv = PackedVector2Array(0, 1216, 1552, 1216, 1551.9999, 0, 0, 0)
+
+[node name="Bounds" parent="." unique_id=933791999 instance=ExtResource("2_mmdvd")]
+position = Vector2(1215, 0)
+
+[node name="ObstacleSpawner" parent="Bounds" unique_id=543382101 instance=ExtResource("3_fn3g3")]
+position = Vector2(0, 75.5597)
+scale = Vector2(1, 0.8880597)
+
+[node name="PlayerTrack" type="Node2D" parent="." unique_id=1067513099]
+position = Vector2(350, 540)
