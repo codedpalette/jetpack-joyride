@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cpqtnu4rvmlr0"]
 
-[ext_resource type="Texture2D" uid="uid://cgwcw6v0v42mh" path="res://world/background/background.jpg" id="1_h7gjo"]
+[ext_resource type="Texture2D" uid="uid://t63tv4w6vybu" path="res://world/background/paper.jpg" id="1_hdbcp"]
 [ext_resource type="Script" uid="uid://cflwyycisao6i" path="res://world/background/background.gd" id="2_hdbcp"]
 
 [node name="Background" type="Polygon2D" unique_id=990870019]
-modulate = Color(1, 1, 1, 0.23529412)
-texture = ExtResource("1_h7gjo")
+texture = ExtResource("1_hdbcp")
 polygon = PackedVector2Array(0, 675, 1211.9365, 679.2467, 1212.1472, 0.04135275, 0, 0)
+uv = PackedVector2Array(21.470383, 650.63873, 1220.8909, 651.5111, 1219.1539, 30.490982, 20.601654, 31.355911)
 script = ExtResource("2_hdbcp")
