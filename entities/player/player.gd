@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 const JUMP_FORCE := 2000.0
 const GRAVITY := 2000.0
 const MAX_VELOCITY := 800.0
@@ -9,6 +10,11 @@ func _input(event: InputEvent) -> void:
     if event.is_action_pressed("shoot"):
         velocity.y = 0
 
+func _process(_delta: float) -> void:
+    if is_on_floor():
+        animated_sprite.play("walk")
+    else:
+        animated_sprite.play("fly")
 
 func _physics_process(delta: float) -> void:
     var acceleration := Vector2.ZERO
