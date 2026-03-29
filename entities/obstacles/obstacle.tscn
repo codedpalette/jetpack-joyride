@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://boiqoei2ixcpw" path="res://entities/obstacles/obstacle.png" id="2_ruf4g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruf4g"]
-radius = 40.0
+resource_local_to_scene = true
+radius = 38.0
 
 [node name="Obstacle" type="Area2D" unique_id=430811972]
 script = ExtResource("1_7t8yd")

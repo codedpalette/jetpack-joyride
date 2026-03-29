@@ -1,22 +1,36 @@
 extends Path2D
 
 @onready var path_follow: PathFollow2D = $PathFollow2D
+@onready var timer: Timer = $Timer
 var obstacle_scene := preload("res://entities/obstacles/obstacle.tscn")
 var obstacle_pool: Array[Obstacle] = []
+var obstacle_types: Array[Obstacle.ObstacleType] = [
+    Obstacle.ObstacleType.SMALL,
+    Obstacle.ObstacleType.MEDIUM,
+    Obstacle.ObstacleType.LARGE
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     for i in range(5):
-        var obstacle: Obstacle = obstacle_scene.instantiate()
-        obstacle.exited_screen.connect(_on_obstacle_exited_screen.bind(obstacle))
-        obstacle_pool.append(obstacle)
-
-func _on_obstacle_exited_screen(obstacle: Obstacle) -> void:
-    remove_child(obstacle)
-    obstacle_pool.append(obstacle)
+        _create_obstacle()
 
 func _on_timer_timeout() -> void:
     path_follow.progress_ratio = randf()
-    var obstacle: Obstacle = obstacle_pool.pop_front()
+    var obstacle := _try_get_obstacle()
     obstacle.position = path_follow.position
+    obstacle.type = obstacle_types.pick_random()
     add_child(obstacle)
+    timer.wait_time = randf_range(0.5, 1.5)
+
+func _try_get_obstacle() -> Obstacle:
+    if obstacle_pool.is_empty():
+        _create_obstacle()
+    return obstacle_pool.pop_front()
+
+func _create_obstacle() -> Obstacle:
+    var obstacle: Obstacle = obstacle_scene.instantiate()
+    obstacle.exited_screen.connect(func(): remove_child(obstacle))
+    obstacle.tree_exited.connect(func(): obstacle_pool.append(obstacle))
+    obstacle_pool.append(obstacle)
+    return obstacle
