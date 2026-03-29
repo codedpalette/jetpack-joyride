@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://kertcuir2gc5"]
 
 [ext_resource type="Script" uid="uid://jv1qcya0mtqg" path="res://entities/obstacles/obstacle.gd" id="1_7t8yd"]
+[ext_resource type="Texture2D" uid="uid://boiqoei2ixcpw" path="res://entities/obstacles/obstacle.png" id="2_ruf4g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruf4g"]
-size = Vector2(80, 80)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ruf4g"]
+radius = 40.0
 
 [node name="Obstacle" type="Area2D" unique_id=430811972]
 script = ExtResource("1_7t8yd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1438575322]
-shape = SubResource("RectangleShape2D_ruf4g")
+shape = SubResource("CircleShape2D_ruf4g")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1629215476]
 rect = Rect2(-40, -40, 80, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576452242]
+texture = ExtResource("2_ruf4g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
