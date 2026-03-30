@@ -40,6 +40,8 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
     if body is Player:
         (body as Player).die()
+    elif body is Bullet:
+        (body as Bullet).collided.emit()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
     exited_screen.emit()

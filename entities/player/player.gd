@@ -47,11 +47,9 @@ func _physics_process(delta: float) -> void:
 
 func _shoot_bullet() -> void:
     var bullet := _try_get_bullet()
-    bullet.position = (get_parent() as Node2D).to_local(to_global(bullet_emitter.position))
-    #bullet.position = bullet_emitter.position
-    bullet.velocity = Vector2.DOWN.rotated(deg_to_rad(randf_range(-15, 15)))
-    #add_child(bullet)
     add_sibling(bullet)
+    bullet.global_position = bullet_emitter.global_position
+    bullet.velocity = Vector2.DOWN.rotated(deg_to_rad(randf_range(-15, 15)))
 
 func _try_get_bullet() -> Bullet:
     if bullets.is_empty():
