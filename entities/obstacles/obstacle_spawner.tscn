@@ -14,7 +14,6 @@ curve = SubResource("Curve2D_uw481")
 script = ExtResource("1_i5i8p")
 
 [node name="Timer" type="Timer" parent="." unique_id=965352814]
-autostart = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=924927690]
 rotation = 1.5707964

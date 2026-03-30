@@ -1,3 +1,4 @@
+class_name ObstacleSpawner
 extends Path2D
 
 @onready var path_follow: PathFollow2D = $PathFollow2D
@@ -9,6 +10,15 @@ var obstacle_types: Array[Obstacle.ObstacleType] = [
     Obstacle.ObstacleType.MEDIUM,
     Obstacle.ObstacleType.LARGE
 ]
+
+func start() -> void:
+    for child in get_children():
+        if child is Obstacle:
+            remove_child(child)
+    timer.start()
+
+func stop() -> void:
+    timer.stop()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

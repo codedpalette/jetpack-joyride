@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+signal died
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bullet_timer: Timer = $BulletTimer
 @onready var bullet_emitter: Node2D = $BulletEmitter
@@ -12,7 +13,8 @@ const GRAVITY := 2000.0
 const MAX_VELOCITY := 800.0
 
 func die() -> void:
-    print("Player died")
+    bullet_timer.stop()
+    died.emit()
 
 func _ready() -> void:
     for i in range(5):
