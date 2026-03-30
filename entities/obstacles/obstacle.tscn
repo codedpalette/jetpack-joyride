@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://kertcuir2gc5"]
 
 [ext_resource type="Script" uid="uid://jv1qcya0mtqg" path="res://entities/obstacles/obstacle.gd" id="1_7t8yd"]
+[ext_resource type="Material" uid="uid://e0htal0agu8n" path="res://entities/obstacles/obstacle_material.tres" id="2_b0l63"]
 [ext_resource type="Texture2D" uid="uid://boiqoei2ixcpw" path="res://entities/obstacles/obstacle.png" id="2_ruf4g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruf4g"]
@@ -17,6 +18,7 @@ shape = SubResource("CircleShape2D_ruf4g")
 rect = Rect2(-40, -40, 80, 80)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=576452242]
+material = ExtResource("2_b0l63")
 texture = ExtResource("2_ruf4g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

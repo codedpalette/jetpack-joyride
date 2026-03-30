@@ -3,42 +3,32 @@
 [ext_resource type="PackedScene" uid="uid://cpqtnu4rvmlr0" path="res://world/background/background.tscn" id="1_h5o24"]
 [ext_resource type="Script" uid="uid://cs7hk8trnal3t" path="res://world/world.gd" id="1_mmdvd"]
 [ext_resource type="PackedScene" uid="uid://dbdogidroy41n" path="res://entities/obstacles/obstacle_spawner.tscn" id="3_fn3g3"]
+[ext_resource type="PackedScene" uid="uid://1jy8tbsjrh02" path="res://world/bounds/bound.tscn" id="4_mmdvd"]
 
-[sub_resource type="Curve2D" id="Curve2D_4717r"]
+[sub_resource type="Curve2D" id="Curve2D_h5o24"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1225, 95, 0, 0, 0, 0, 1225, 580)
 }
 point_count = 2
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h5o24"]
-normal = Vector2(0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4717r"]
-
 [node name="World" type="Node2D" unique_id=358015146]
 script = ExtResource("1_mmdvd")
 
 [node name="Background" parent="." unique_id=990870019 instance=ExtResource("1_h5o24")]
+z_index = -1
 texture_repeat = 2
 uv = PackedVector2Array(0, 1216, 1552, 1216, 1551.9999, 0, 0, 0)
 
 [node name="ObstacleSpawner" parent="." unique_id=543382101 instance=ExtResource("3_fn3g3")]
-curve = SubResource("Curve2D_4717r")
+curve = SubResource("Curve2D_h5o24")
 
 [node name="PlayerTrack" type="Node2D" parent="." unique_id=1067513099]
 position = Vector2(350, 540)
 
-[node name="Ceiling" type="StaticBody2D" parent="." unique_id=1089901766]
+[node name="Ceiling" parent="." unique_id=178667994 instance=ExtResource("4_mmdvd")]
 position = Vector2(1225, 75)
-metadata/_edit_group_ = true
+normal = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=53691769]
-shape = SubResource("WorldBoundaryShape2D_h5o24")
-
-[node name="Floor" type="StaticBody2D" parent="." unique_id=1309070492]
+[node name="Floor" parent="." unique_id=1667255926 instance=ExtResource("4_mmdvd")]
 position = Vector2(1225, 600)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1078883070]
-shape = SubResource("WorldBoundaryShape2D_4717r")

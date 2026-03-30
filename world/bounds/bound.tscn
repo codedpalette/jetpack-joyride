@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1jy8tbsjrh02"]
+
+[ext_resource type="Material" uid="uid://by5tlyngxywcs" path="res://world/bounds/bounds_material.tres" id="1_qk273"]
+[ext_resource type="Script" uid="uid://biund0mbklo5m" path="res://world/bounds/bound.gd" id="1_tnamx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h5o24"]
+resource_local_to_scene = true
+normal = Vector2(0, 1)
+
+[node name="Bound" type="StaticBody2D" unique_id=178667994]
+script = ExtResource("1_tnamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=583445516]
+shape = SubResource("WorldBoundaryShape2D_h5o24")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1752225436]
+material = ExtResource("1_qk273")
+
+[node name="Line2D" type="Line2D" parent="CanvasGroup" unique_id=560423880]
+points = PackedVector2Array(0, 0, -1230, 0)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+antialiased = true

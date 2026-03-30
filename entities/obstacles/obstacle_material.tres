@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://e0htal0agu8n"]
+
+[ext_resource type="Shader" uid="uid://dyftncxov6io2" path="res://assets/shaders/squiggly.gdshader" id="1_a6ebr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kc3nb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d45rx"]
+noise = SubResource("FastNoiseLite_kc3nb")
+
+[resource]
+shader = ExtResource("1_a6ebr")
+shader_parameter/use_screen_texture = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 2.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_d45rx")

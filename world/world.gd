@@ -6,6 +6,7 @@ extends Node2D
 @onready var obstacle_spawner: Path2D = $ObstacleSpawner
 @onready var ceiling_body: StaticBody2D = $Ceiling
 @onready var floor_body: StaticBody2D = $Floor
+@onready var viewport_width: float = get_viewport_rect().size.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
