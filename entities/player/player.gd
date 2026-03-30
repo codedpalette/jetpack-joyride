@@ -13,8 +13,10 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
     if is_on_floor():
         animated_sprite.play("walk")
-    else:
+    elif Input.is_action_pressed("shoot"):
         animated_sprite.play("fly")
+    else:
+        animated_sprite.play("idle")
 
 func _physics_process(delta: float) -> void:
     var acceleration := Vector2.ZERO
