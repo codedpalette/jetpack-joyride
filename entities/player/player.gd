@@ -20,10 +20,16 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     if is_on_floor():
         animated_sprite.play("walk")
-    elif Input.is_action_pressed("shoot"):
+    elif Input.is_action_pressed("shoot") and not _dead:
         animated_sprite.play("fly")
+        if bullet_timer.is_stopped():
+            velocity.y = 0
+            _shoot_bullet()
+            bullet_timer.start()
     else:
         animated_sprite.play("idle")
+        if not bullet_timer.is_stopped():
+            bullet_timer.stop()
 
 func _physics_process(delta: float) -> void:
     var acceleration := Vector2.ZERO
@@ -35,22 +41,16 @@ func _physics_process(delta: float) -> void:
     velocity.y = clamp(velocity.y, -MAX_VELOCITY, MAX_VELOCITY)
     move_and_slide()
 
-func _input(event: InputEvent) -> void:
-    if _dead: return
-    if event.is_action_pressed("shoot"):
-        velocity.y = 0
-        _shoot_bullet()
-        bullet_timer.start()
-    elif event.is_action_released("shoot"):
-        bullet_timer.stop()
-
 func reset() -> void:
     _dead = false
     position = Vector2.ZERO
     velocity = Vector2.ZERO
+    var parent := get_parent()
+    for sibling in parent.get_children():
+        if sibling is Bullet:
+            parent.remove_child(sibling)
 
 func die() -> void:
-    # TODO: Clean up bullets
     _dead = true
     bullet_timer.stop()
     died.emit()

@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://b5bbyyyjrd35t"]
 
-[ext_resource type="Script" uid="uid://o6i6hnf0qcua" path="res://ui/start_ui.gd" id="1_6i85u"]
-
 [node name="StartUI" type="Control" unique_id=956457689]
 layout_mode = 3
 anchors_preset = 15
@@ -9,7 +7,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6i85u")
 
 [node name="StartButton" type="Button" parent="." unique_id=766049111]
 layout_mode = 1

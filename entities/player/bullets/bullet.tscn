@@ -6,6 +6,7 @@
 radius = 5.0
 
 [node name="Bullet" type="CharacterBody2D" unique_id=458844434]
+collision_layer = 2
 script = ExtResource("1_5n4y6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1982806530]

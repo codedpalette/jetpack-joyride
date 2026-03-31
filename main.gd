@@ -14,5 +14,5 @@ func _on_ui_started() -> void:
     world.start(player)
 
 func _on_player_died() -> void:
-    world.stop(player)
+    world.stop()
     ui.show_start_ui()
