@@ -1,10 +1,9 @@
 extends Node
 
-@onready var world: World = $World
-@onready var ui: UI = $UI
-
 var player_scene := preload("res://entities/player/player.tscn")
 var player: Player
+@onready var world: World = $World
+@onready var ui: UI = $UI
 
 func _ready() -> void:
     player = player_scene.instantiate()

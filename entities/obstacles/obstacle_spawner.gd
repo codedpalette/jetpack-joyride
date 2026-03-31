@@ -1,8 +1,6 @@
 class_name ObstacleSpawner
 extends Path2D
 
-@onready var path_follow: PathFollow2D = $PathFollow2D
-@onready var timer: Timer = $Timer
 var obstacle_scene := preload("res://entities/obstacles/obstacle.tscn")
 var obstacle_pool: Array[Obstacle] = []
 var obstacle_types: Array[Obstacle.ObstacleType] = [
@@ -10,6 +8,12 @@ var obstacle_types: Array[Obstacle.ObstacleType] = [
     Obstacle.ObstacleType.MEDIUM,
     Obstacle.ObstacleType.LARGE
 ]
+@onready var path_follow: PathFollow2D = $PathFollow2D
+@onready var timer: Timer = $Timer
+
+func _ready() -> void:
+    for i in range(5):
+        _create_obstacle()
 
 func start() -> void:
     for child in get_children():
@@ -19,11 +23,6 @@ func start() -> void:
 
 func stop() -> void:
     timer.stop()
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    for i in range(5):
-        _create_obstacle()
 
 func _on_timer_timeout() -> void:
     path_follow.progress_ratio = randf()

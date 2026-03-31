@@ -4,7 +4,6 @@ extends StaticBody2D
 @export var normal: Vector2 = Vector2.UP
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     _set_normal()
 

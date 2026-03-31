@@ -14,8 +14,7 @@ func _process(_delta: float) -> void:
         obstacle_spawner.curve.set_point_position(1, floor_body.position + Vector2.UP * 20)
 
 func start(player: Player) -> void:
-    player.position = Vector2.ZERO
-    player.velocity = Vector2.ZERO
+    player.reset()
     for child in player_track.get_children():
         if child is Bullet:
             player_track.remove_child(child)

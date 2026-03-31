@@ -2,16 +2,14 @@ class_name Obstacle
 extends Area2D
 
 signal exited_screen
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var sprite: Sprite2D = $Sprite2D
-
 enum ObstacleType {SMALL, MEDIUM, LARGE}
 const BASE_LINEAR_SPEED := 400.0
 const BASE_ROTATION_SPEED := 180.0 # degrees per second
-
 var type: ObstacleType
 var linear_speed: float
 var rotation_speed: float
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
     if not type:
@@ -32,7 +30,6 @@ func _ready() -> void:
     (collision_shape.shape as CircleShape2D).radius *= scale_factor
     sprite.scale *= scale_factor
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     position.x -= linear_speed * delta
     sprite.rotation_degrees -= rotation_speed * delta
