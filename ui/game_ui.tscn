@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cgbm8vems3cnl"]
+
+[ext_resource type="Theme" uid="uid://dcat1yq7cjsp1" path="res://ui/ui_theme.tres" id="1_dcmab"]
+[ext_resource type="Shader" uid="uid://dyftncxov6io2" path="res://assets/shaders/squiggly.gdshader" id="1_w46tp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7hrjk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pylni"]
+noise = SubResource("FastNoiseLite_7hrjk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3vkek"]
+shader = ExtResource("1_w46tp")
+shader_parameter/use_screen_texture = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_pylni")
+
+[node name="GameUI" type="Control" unique_id=1455161176]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=801553139]
+material = SubResource("ShaderMaterial_3vkek")
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 95.0
+grow_horizontal = 0
+theme = ExtResource("1_dcmab")
+theme_override_font_sizes/font_size = 32
+text = "0"

@@ -5,14 +5,22 @@ signal started
 @onready var start_ui: Control = $StartUI
 @onready var title_label: Label = $StartUI/VBoxContainer/TitleLabel
 @onready var start_button: TextureButton = $StartUI/VBoxContainer/StartButton
+@onready var game_ui: Control = $GameUI
+@onready var score_label: Label = $GameUI/ScoreLabel
 
 func _ready() -> void:
     start_button.pressed.connect(_on_start_button_pressed)
+    game_ui.hide()
 
 func show_start_ui() -> void:
     start_ui.show()
+    game_ui.hide()
+
+func show_score(score: int) -> void:
+    score_label.text = str(score)
 
 func _on_start_button_pressed() -> void:
     start_ui.hide()
     title_label.hide()
+    game_ui.show()
     started.emit()

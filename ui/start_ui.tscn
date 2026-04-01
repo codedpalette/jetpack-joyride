@@ -4,7 +4,6 @@
 [ext_resource type="Shader" uid="uid://dyftncxov6io2" path="res://assets/shaders/squiggly.gdshader" id="1_cm82x"]
 [ext_resource type="Theme" uid="uid://dcat1yq7cjsp1" path="res://ui/ui_theme.tres" id="1_oq0ia"]
 [ext_resource type="Texture2D" uid="uid://b28nljufr08qu" path="res://ui/start_button_hover.png" id="2_33j7d"]
-[ext_resource type="Material" uid="uid://cssevr78slctm" path="res://ui/ui_material.tres" id="3_7plfu"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jttma"]
 
@@ -18,6 +17,19 @@ shader_parameter/scale = Vector2(1, 1)
 shader_parameter/strength = 0.2
 shader_parameter/fps = 6.0
 shader_parameter/noise = SubResource("NoiseTexture2D_usc55")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oq0ia"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7plfu"]
+noise = SubResource("FastNoiseLite_oq0ia")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jttma"]
+shader = ExtResource("1_cm82x")
+shader_parameter/use_screen_texture = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 2.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_7plfu")
 
 [node name="StartUI" type="Control" unique_id=956457689]
 layout_mode = 3
@@ -52,7 +64,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StartButton" type="TextureButton" parent="VBoxContainer" unique_id=1084055827]
-material = ExtResource("3_7plfu")
+material = SubResource("ShaderMaterial_jttma")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

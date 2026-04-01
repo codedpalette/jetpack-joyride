@@ -2,6 +2,8 @@ extends Node
 
 var player_scene := preload("res://entities/player/player.tscn")
 var player: Player
+var score: float = 0
+var is_playing: bool = false
 @onready var world: World = $World
 @onready var ui: UI = $UI
 
@@ -10,9 +12,17 @@ func _ready() -> void:
     ui.started.connect(_on_ui_started)
     player.died.connect(_on_player_died)
 
+func _process(delta: float) -> void:
+    if is_playing:
+        score += randf_range(5, 15) * delta
+        ui.show_score(int(score))
+
 func _on_ui_started() -> void:
     world.start(player)
+    is_playing = true
 
 func _on_player_died() -> void:
+    is_playing = false
+    score = 0
     world.stop()
     ui.show_start_ui()
