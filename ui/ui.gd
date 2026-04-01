@@ -3,7 +3,8 @@ extends Control
 
 signal started
 @onready var start_ui: Control = $StartUI
-@onready var start_button: Button = $StartUI/StartButton
+@onready var title_label: Label = $StartUI/VBoxContainer/TitleLabel
+@onready var start_button: TextureButton = $StartUI/VBoxContainer/StartButton
 
 func _ready() -> void:
     start_button.pressed.connect(_on_start_button_pressed)
@@ -13,4 +14,5 @@ func show_start_ui() -> void:
 
 func _on_start_button_pressed() -> void:
     start_ui.hide()
+    title_label.hide()
     started.emit()

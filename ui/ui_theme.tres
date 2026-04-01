@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dcat1yq7cjsp1"]
+
+[ext_resource type="FontFile" uid="uid://cbrhwoxsejjmy" path="res://assets/fonts/RockSalt-Regular.ttf" id="1_udl1o"]
+
+[resource]
+default_font = ExtResource("1_udl1o")
+Label/colors/font_color = Color(0, 0, 0, 1)
