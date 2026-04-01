@@ -3,6 +3,7 @@ extends Node
 var player_scene := preload("res://entities/player/player.tscn")
 var player: Player
 var score: float = 0
+var high_score: int = 0
 var is_playing: bool = false
 @onready var world: World = $World
 @onready var ui: UI = $UI
@@ -23,6 +24,7 @@ func _on_ui_started() -> void:
 
 func _on_player_died() -> void:
     is_playing = false
-    score = 0
     world.stop()
-    ui.show_start_ui()
+    ui.show_start_ui(int(score), high_score)
+    high_score = max(high_score, int(score))
+    score = 0

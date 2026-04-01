@@ -18,6 +18,19 @@ shader_parameter/strength = 0.2
 shader_parameter/fps = 6.0
 shader_parameter/noise = SubResource("NoiseTexture2D_usc55")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7plfu"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jttma"]
+noise = SubResource("FastNoiseLite_7plfu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usc55"]
+shader = ExtResource("1_cm82x")
+shader_parameter/use_screen_texture = false
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_jttma")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oq0ia"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7plfu"]
@@ -60,6 +73,15 @@ layout_mode = 2
 theme = ExtResource("1_oq0ia")
 theme_override_font_sizes/font_size = 80
 text = "Doodle Dash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="VBoxContainer" unique_id=1324481813]
+visible = false
+material = SubResource("ShaderMaterial_usc55")
+layout_mode = 2
+theme = ExtResource("1_oq0ia")
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
 

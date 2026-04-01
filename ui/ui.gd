@@ -7,14 +7,20 @@ signal started
 @onready var start_button: TextureButton = $StartUI/VBoxContainer/StartButton
 @onready var game_ui: Control = $GameUI
 @onready var score_label: Label = $GameUI/ScoreLabel
+@onready var final_score_label: Label = $StartUI/VBoxContainer/FinalScoreLabel
 
 func _ready() -> void:
     start_button.pressed.connect(_on_start_button_pressed)
     game_ui.hide()
 
-func show_start_ui() -> void:
+func show_start_ui(score: int, high_score: int) -> void:
     start_ui.show()
     game_ui.hide()
+    final_score_label.show()
+    if score > high_score:
+        final_score_label.text = "New high score: %s!" % score
+    else:
+        final_score_label.text = "Score: %s" % score
 
 func show_score(score: int) -> void:
     score_label.text = str(score)
