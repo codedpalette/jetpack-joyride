@@ -3,8 +3,8 @@ extends Area2D
 
 signal exited_screen
 enum ObstacleType {SMALL, MEDIUM, LARGE}
-const BASE_LINEAR_SPEED := 400.0
-const BASE_ROTATION_SPEED := 180.0 # degrees per second
+const BASE_LINEAR_SPEED := 500.0
+const BASE_ROTATION_SPEED := 90.0 # degrees per second
 var type: ObstacleType
 var linear_speed: float
 var rotation_speed: float
@@ -17,15 +17,15 @@ func _ready() -> void:
     var scale_factor := 1.0
     match type:
         ObstacleType.SMALL:
-            linear_speed = BASE_LINEAR_SPEED * 1.5
-            rotation_speed = BASE_ROTATION_SPEED * 2.0
+            linear_speed = BASE_LINEAR_SPEED * 2
+            rotation_speed = BASE_ROTATION_SPEED * 4
             scale_factor = 0.75
         ObstacleType.MEDIUM:
+            linear_speed = BASE_LINEAR_SPEED * 1.33
+            rotation_speed = BASE_ROTATION_SPEED * 2
+        ObstacleType.LARGE:
             linear_speed = BASE_LINEAR_SPEED
             rotation_speed = BASE_ROTATION_SPEED
-        ObstacleType.LARGE:
-            linear_speed = BASE_LINEAR_SPEED * 0.75
-            rotation_speed = BASE_ROTATION_SPEED * 0.5
             scale_factor = 1.5
     (collision_shape.shape as CircleShape2D).radius *= scale_factor
     sprite.scale *= scale_factor

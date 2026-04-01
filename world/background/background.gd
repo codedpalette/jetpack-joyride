@@ -1,7 +1,7 @@
 class_name Background
 extends Polygon2D
 
-var speed := 300.0
+var speed := Obstacle.BASE_LINEAR_SPEED
 var is_moving := false
 
 func _process(delta: float) -> void:
