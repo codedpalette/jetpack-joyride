@@ -18,9 +18,10 @@ func _ready() -> void:
     bullet_timer.timeout.connect(func(): _shoot_bullet())
 
 func _process(_delta: float) -> void:
+    if _dead: return
     if is_on_floor():
         animated_sprite.play("walk")
-    elif Input.is_action_pressed("shoot") and not _dead:
+    elif Input.is_action_pressed("shoot"):
         animated_sprite.play("fly")
         if bullet_timer.is_stopped():
             velocity.y = 0
@@ -51,7 +52,9 @@ func reset() -> void:
             parent.remove_child(sibling)
 
 func die() -> void:
+    if _dead: return
     _dead = true
+    animated_sprite.play("dead")
     bullet_timer.stop()
     died.emit()
 

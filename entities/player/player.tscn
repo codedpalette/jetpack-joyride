@@ -5,10 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://bbsr7sqmj18ln" path="res://entities/player/player_walk1.png" id="2_bls4j"]
 [ext_resource type="Texture2D" uid="uid://h1jmqys4ly5n" path="res://entities/player/player_fly.png" id="2_fkugw"]
 [ext_resource type="Texture2D" uid="uid://twuvvpb7gyjw" path="res://entities/player/player_walk2.png" id="3_fkugw"]
+[ext_resource type="Texture2D" uid="uid://b3htci8cea1jh" path="res://entities/player/player_dead.png" id="3_qiwj3"]
 [ext_resource type="Texture2D" uid="uid://bdsqe70udyjjy" path="res://entities/player/player_idle.png" id="4_8fjmc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8fjmc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qiwj3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_fkugw")
@@ -49,7 +58,7 @@ script = ExtResource("1_4flbx")
 material = ExtResource("2_8fjmc")
 position = Vector2(5, 0)
 sprite_frames = SubResource("SpriteFrames_8fjmc")
-animation = &"fly"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1377592384]
 shape = SubResource("CapsuleShape2D_sglur")
